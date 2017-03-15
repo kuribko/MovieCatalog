@@ -24,6 +24,6 @@ nbdist/
 .nb-gradle/
 
 ### reactjs ###
-node_modules
+#node_modules
 /.mvn/
 /mvnw.cmd
