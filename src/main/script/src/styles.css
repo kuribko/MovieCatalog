@@ -123,6 +123,10 @@ ul.filterList {
     padding-bottom: 10px;
 }
 
+.pagination{
+    margin: 0px;
+}
+
 a .movie {
     color: black;
 }

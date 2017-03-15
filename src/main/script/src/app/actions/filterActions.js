@@ -5,12 +5,18 @@ import Axios from 'axios';
 export function changeSearchString(searchString) {
 
     return (dispatch, getState) => {
-        dispatch(getMovies(searchString, getState().filterReducer.filters));
-
         dispatch({
             type: "SEARCH_STRING_CHANGED",
             payload: searchString
         })
+
+        dispatch(
+            getMovies(
+                searchString,
+                getState().filterReducer.filters,
+                getState().filterReducer.currentPage
+            )
+        );
     };
 }
 
@@ -40,50 +46,29 @@ export function changeFilter(name, value) {
             selected: selected
         }
 
-        dispatch(getMovies(getState().filterReducer.searchString, filters));
-
         dispatch({
             type: "FILTERS_CHANGED",
             payload: filters
         })
+
+        dispatch(
+            getMovies(
+                getState().filterReducer.searchString,
+                filters,
+                getState().filterReducer.currentPage)
+        );
+
     };
 }
 
-// export function changeSearchString(filter) {
-//     return (dispatch, getState) => {
-//         let url = Constants.URLS.movies + filter.searchString;
-//         console.log("GET from ", url);
-//         console.log("ge tState: ", getState());
-//         // Returns a promise
-//         return Axios.get(url)
-//             .then(response => {
-//                 let result = response.data;
-//                 console.log("GET result: ", result);
-//
-//                 let e = {
-//                     type: "SEARCH_STRING_CHANGED",
-//                     payload: {
-//                         filter: filter,
-//                         searchResults: result
-//                     }
-//                 }
-//
-//                 dispatch(e)
-//             })
-//             .catch(error => {
-//                 throw(error);
-//             });
-//     };
-// }
-
-export function getMovies(searchString, filters) {
+export function getMovies(searchString, filters, currentPage) {
     return (dispatch) => {
 
         let filterString = "";
         for (var key in filters) {
             filterString = filterString + getFiltersString(key, filters[key].selected);
         }
-        let url = Constants.URLS.movies + searchString + filterString;
+        let url = Constants.URLS.movies + searchString + filterString+"&p="+currentPage;
 
         console.log("GET from ", url);
         // Returns a promise
@@ -138,4 +123,19 @@ export function downloadFilterValues(fieldName, url) {
                 throw(error);
             });
     };
+}
+
+export function changePage(pageNumber) {
+    return (dispatch, getState) => {
+        if (pageNumber < 1) {
+            pageNumber = 1;
+        }
+
+        dispatch({
+            type: "PAGE_CHANGED",
+            payload: pageNumber
+        })
+
+        dispatch(getMovies(getState().filterReducer.searchString, getState().filterReducer.filters, pageNumber));
+    }
 }

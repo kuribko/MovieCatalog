@@ -15,8 +15,8 @@ class Filter extends React.Component {
 
     render() {
         let filters;
-        if (this.props.fieldName in this.props.movies.filters) {
-            filters = this.props.movies.filters[this.props.fieldName];
+        if (this.props.fieldName in this.props.allFilters) {
+            filters = this.props.allFilters[this.props.fieldName];
         } else {
             filters = {items: [], selected: []};
         }
@@ -48,7 +48,7 @@ class Filter extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.filterReducer
+        allFilters: state.filterReducer.filters
     }
 }
 

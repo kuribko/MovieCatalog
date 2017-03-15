@@ -7,6 +7,9 @@ import Config from 'Config';
 import {Header} from "../components/Header";
 import {Main} from "../components/Main";
 import {changeSearchString} from "../actions/filterActions";
+import MovieTable from "../containers/MovieTable";
+import {Filters} from "../components/Filters";
+import Paginator from "./Paginator";
 
 class App extends React.Component {
     constructor(props) {
@@ -22,7 +25,11 @@ class App extends React.Component {
         return (
             <div>
                 <Header/>
-                <Main searchResults={this.props.movies.searchResults}/>
+                <Main>
+                    <Paginator/>
+                    <MovieTable/>
+                    <Filters/>
+                </Main>
             </div>
         )
     }
@@ -30,7 +37,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.filterReducer
+        filterReducer: state.filterReducer
     }
 }
 
