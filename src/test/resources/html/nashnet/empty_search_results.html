@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск &quot;terminator&quot; (5 фильмов) / Фильмы</title>
+    <link rel="icon" type="image/png" href="/img/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//www.nashnet.ua/video2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//www.nashnet.ua/video2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//www.nashnet.ua/video2.0/css/style.css?v=2.03">
+    <script type="text/javascript" src="//www.nashnet.ua/video2.0/js/jquery-1.11.3.min.js"></script>
+    <script src="//www.nashnet.ua/video2.0/js/bootstrap.min.js"></script>
+    <style>
+        ul.checkbox li.active + li:not(.active) {
+            margin-top: 10px;
+        }
+
+        ul.checkbox li:not(.active) + li.active {
+            margin-top: 10px;
+        }
+
+        .kp-stars, .imdb-stars {
+            background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22170px%22%20height%3D%2217px%22%3E%3Cdefs%3E%3Cpattern%20id%3D%22star%22%20width%3D%2217%22%20height%3D%2217%22%20patternUnits%3D%22userSpaceOnUse%22%3E%3Cpath%20fill%3D%22%23999999%22%20d%3D%22M8.513%2C2.076l1.622%2C4.128L10.368%2C6.8l0.639%2C0.037l4.378%2C0.256L11.976%2C9.88l-0.498%2C0.407l0.164%2C0.621%20l1.114%2C4.24l-3.713-2.402l-0.541-0.35L7.96%2C12.744l-3.709%2C2.38l1.107-4.216l0.163-0.621L5.023%2C9.88L1.616%2C7.095L6.02%2C6.837%20L6.658%2C6.8l0.234-0.596L8.513%2C2.076%20M8.524%2C0.441c-0.262%2C0-0.497%2C0.15-0.6%2C0.399L5.961%2C5.839L0.596%2C6.153%20C0.412%2C6.179%2C0.255%2C6.257%2C0.15%2C6.388C-0.085%2C6.65-0.033%2C7.042%2C0.229%2C7.252l4.162%2C3.402L3.03%2C15.837%20c-0.026%2C0.025-0.026%2C0.078-0.026%2C0.131c0%2C0.34%2C0.262%2C0.628%2C0.602%2C0.628c0.131%2C0%2C0.262-0.052%2C0.366-0.104L8.5%2C13.586l4.528%2C2.931%20c0.104%2C0.07%2C0.209%2C0.105%2C0.321%2C0.105c0.056%2C0%2C0.114-0.009%2C0.175-0.026c0.341-0.079%2C0.523-0.419%2C0.445-0.759l-1.361-5.183%20l4.162-3.402c0.131-0.105%2C0.235-0.262%2C0.235-0.445c0.026-0.34-0.235-0.628-0.575-0.654l-5.365-0.314L9.102%2C0.84%20C9.023%2C0.656%2C8.893%2C0.525%2C8.735%2C0.473C8.665%2C0.451%2C8.593%2C0.441%2C8.524%2C0.441L8.524%2C0.441z%22%2F%3E%3C%2Fpattern%3E%3C%2Fdefs%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22170%22%20height%3D%2217%22%20fill%3D%22url%28%23star%29%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+            width: 170px;
+            height: 17px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .kp-stars div {
+            background: #e9e9e9 url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22170px%22%20height%3D%2217px%22%3E%3Cdefs%3E%3Cpattern%20id%3D%22star%22%20width%3D%2217%22%20height%3D%2217%22%20patternUnits%3D%22userSpaceOnUse%22%3E%3Cpath%20fill%3D%22%23F68220%22%20d%3D%22M8.494%2C4.379L9.332%2C6.5l0.419%2C1.1l1.179%2C0.079l2.252%2C0.131l-1.755%2C1.416L10.51%2C9.984l0.314%2C1.153%20l0.577%2C2.199l-1.912-1.23l-0.995-0.63l-0.996%2C0.63l-1.912%2C1.23l0.576-2.199l0.314-1.153L5.561%2C9.226L3.806%2C7.81l2.252-0.131%20l1.179-0.079l0.419-1.1L8.494%2C4.379%20M8.494%2C0.424c-0.262%2C0-0.498%2C0.157-0.576%2C0.393L5.954%2C5.82L0.585%2C6.134%20c-0.184%2C0-0.341%2C0.105-0.446%2C0.236C-0.07%2C6.632-0.044%2C7.024%2C0.218%2C7.234l4.165%2C3.405L3.02%2C15.825c0%2C0.052-0.026%2C0.104-0.026%2C0.131%20c0%2C0.341%2C0.262%2C0.628%2C0.603%2C0.628l0%2C0h0.026c0.131%2C0%2C0.236-0.025%2C0.34-0.104l4.531-2.907l4.531%2C2.907%20c0.104%2C0.079%2C0.209%2C0.104%2C0.34%2C0.104c0.053%2C0%2C0.104%2C0%2C0.157-0.025c0.341-0.079%2C0.523-0.419%2C0.444-0.76l-1.361-5.186l4.165-3.406%20c0.131-0.105%2C0.209-0.262%2C0.235-0.445c0.026-0.341-0.235-0.629-0.576-0.655l-5.369-0.314L9.069%2C0.817%20C9.018%2C0.66%2C8.887%2C0.529%2C8.704%2C0.451C8.651%2C0.424%2C8.573%2C0.424%2C8.494%2C0.424L8.494%2C0.424z%22%2F%3E%3C%2Fpattern%3E%3C%2Fdefs%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22170%22%20height%3D%2217%22%20fill%3D%22url%28%23star%29%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+            height: 17px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .imdb-stars div {
+            background: #e9e9e9 url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22170px%22%20height%3D%2217px%22%3E%3Cdefs%3E%3Cpattern%20id%3D%22star%22%20width%3D%2217%22%20height%3D%2217%22%20patternUnits%3D%22userSpaceOnUse%22%3E%3Cpath%20fill%3D%22%23E4BB24%22%20d%3D%22M3.605%2C16.567c-0.34%2C0-0.602-0.288-0.602-0.628c0-0.053%2C0-0.105%2C0.026-0.131l1.361-5.182L0.229%2C7.225%20c-0.262-0.21-0.314-0.603-0.079-0.864C0.255%2C6.23%2C0.412%2C6.151%2C0.596%2C6.125l5.366-0.314l1.963-4.999%20c0.131-0.314%2C0.471-0.471%2C0.811-0.367c0.157%2C0.052%2C0.288%2C0.183%2C0.366%2C0.367l1.964%2C4.999l5.365%2C0.314%20c0.34%2C0.026%2C0.602%2C0.314%2C0.575%2C0.654c0%2C0.184-0.104%2C0.34-0.235%2C0.445l-4.162%2C3.402l1.361%2C5.182c0.078%2C0.34-0.104%2C0.68-0.445%2C0.759%20c-0.183%2C0.053-0.34%2C0.026-0.496-0.079L8.5%2C13.559l-4.528%2C2.904C3.867%2C16.516%2C3.736%2C16.567%2C3.605%2C16.567L3.605%2C16.567z%22%2F%3E%3C%2Fpattern%3E%3C%2Fdefs%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22170%22%20height%3D%2217%22%20fill%3D%22url%28%23star%29%22%2F%3E%3C%2Fsvg%3E') no-repeat;
+            height: 17px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rating-container {
+            display: inline-block;
+            width: 170px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar-head" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a class="hidden-xs navbar-brand" href="/">VideoServer</a>
+                        <a class="visible-xs navbar-brand" href="/">VS</a>
+                    </div>
+                </div>
+
+
+                <div id="navbar-head" class="navbar-collapse collapse">
+
+
+                    <!--NAVIGATION-->
+                    <ul class="nav navbar-nav menu-left">
+                        <li><a href="/genres">По жанрам</a></li>
+                        <li><a href="/years">По годам</a></li>
+                        <li><a href="/countries">По странам</a></li>
+                        <li><a href="/watching_now">Сейчас смотрят</a></li>
+                    </ul>
+
+                    <div class="search-form">
+                        <div id="searchbar" class="collapse pull-left">
+                            <form action="/search" class="navbar-form" method="get" role="search">
+                                <div class="input-group">
+                                    <input class="form-control" name="q" placeholder="Поиск" type="search"
+                                           value="terminator">
+                                    <input type="hidden" name="s" value="mtitle">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-default">
+												<span class="glyphicon glyphicon-search">
+													<span class="sr-only">Search</span>
+												</span>
+											</button>
+										</span>
+                                </div>
+                            </form>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="main">
+        <div class="container">
+            <a class="btn btn-sm btn-info row pull-right" href="/search?q=terminator&amp;s=mtitle&amp;layout=old">Старый
+                дизайн</a>
+            <div class="row">
+                <div class="col-lg-5 text-center">Сортировать по: <b>&#x2193;</b>&nbsp;<a
+                        href="/search?q=terminator&amp;s=mtitle&amp;sort=d" style="font-weight: Bold">добавлению</a> |
+                    &nbsp;<a href="/search?q=terminator&amp;s=mtitle&amp;sort=K">рейтингу КиноПоиска</a> | &nbsp;<a
+                            href="/search?q=terminator&amp;s=mtitle&amp;sort=G">кол-ву голосов КиноПоиска</a> | &nbsp;<a
+                            href="/search?q=terminator&amp;s=mtitle&amp;sort=I">рейтингу IMDB</a> | &nbsp;<a
+                            href="/search?q=terminator&amp;s=mtitle&amp;sort=V">кол-ву голосов IMDB</a> | &nbsp;<a
+                            href="/search?q=terminator&amp;s=mtitle&amp;sort=Y">году выпуска</a></div>
+                <div class="col-lg-5 text-center pager"></div>
+                <h3 class="text-center">Результаты поиска (5)</h3>
+            </div>
+
+            <div class="row">
+                <hr>
+                <div class="col-lg-1 col-lg-push-4 col-md-1 col-md-push-4 col-sm-1 col-sm-push-4 categories">
+                    <div class="btn-group row">
+                        <a class="btn btn-orange active" href="/search?q=terminator&amp;s=mtitle&amp;style=large">
+                            <i class="glyphicon glyphicon-th-large"></i>
+                        </a> <a class="btn btn-default" href="/search?q=terminator&amp;s=mtitle&amp;style=list">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                    </a></div>
+
+                    <button type="button" class="visible-xs toggle btn" data-toggle="collapse" data-target="#navbar">
+                        Открыть фильтры
+                        <span class="sr-only">Фильтры</span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="cat radio">Категории
+                            <li class="active">
+                                <a href="/search?q=terminator&amp;s=mtitle">Все</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;type=movies">Фильмы</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;type=series">Сериалы</a>
+                            </li>
+                        </ul>
+                        <ul class="cat checkbox">Год
+                            <li class="active">
+                                <a href="/search?q=terminator&amp;s=mtitle">Любой</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=2017">2017</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=2016">2016</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=2015">2015</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=2014">2014</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=2010-2013">2010-2013</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=2000-2009">2000-е</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=1990-1999">1990-е</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=1980-1989">1980-е</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;year=1900-1979">1970-е и раньше</a>
+                            </li>
+                        </ul>
+                        <ul class="cat checkbox">Жанры
+                            <li class="active">
+                                <a href="/search?q=terminator&amp;s=mtitle">Любой</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9">Анимационный</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%91%D0%B8%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9">Биографический</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%91%D0%BE%D0%B5%D0%B2%D0%B8%D0%BA">Боевик</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%92%D0%B5%D1%81%D1%82%D0%B5%D1%80%D0%BD">Вестерн</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%92%D0%BE%D0%B9%D0%BD%D0%B0">Война</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%94%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%B8%D0%B2">Детектив</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9">Детский</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9">Документальный</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%94%D1%80%D0%B0%D0%BC%D0%B0">Драма</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9">Исторический</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9A%D0%BE%D0%BC%D0%B5%D0%B4%D0%B8%D1%8F">Комедия</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9A%D1%80%D0%B8%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB">Криминал</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9B%D1%8E%D0%B1%D0%BE%D0%B2%D0%BD%D1%8B%D0%B9+%D1%80%D0%BE%D0%BC%D0%B0%D0%BD">Любовный
+                                    роман</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9C%D0%B5%D0%BB%D0%BE%D0%B4%D1%80%D0%B0%D0%BC%D0%B0">Мелодрама</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9C%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0">Мистика</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0">Музыка</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9">Музыкальный</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9C%D1%83%D0%BB%D1%8C%D1%82%D1%84%D0%B8%D0%BB%D1%8C%D0%BC">Мультфильм</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9E%D1%82%D0%B5%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9">Отечественный</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%9F%D1%80%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F">Приключения</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A1%D0%B5%D0%BC%D0%B5%D0%B9%D0%BD%D1%8B%D0%B9">Семейный</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB">Сериал</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A1%D0%BF%D0%BE%D1%80%D1%82">Спорт</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A2%D1%80%D0%B8%D0%BB%D0%BB%D0%B5%D1%80">Триллер</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A3%D0%B6%D0%B0%D1%81%D1%8B">Ужасы</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A4%D0%B0%D0%BD%D1%82%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0">Фантастика</a>
+                            </li>
+                            <li>
+                                <a href="/search?q=terminator&amp;s=mtitle&amp;genre=%D0%A4%D1%8D%D0%BD%D1%82%D0%B5%D0%B7%D0%B8">Фэнтези</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-lg-pull-1 col-md-4 col-md-pull-1 col-sm-4 col-sm-pull-1" id="media">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-7 text-center pager"></div>
+            </div>
+
+
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="row text-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    if ($(document).width() < 768) {
+        $('#admin-menu').removeClass("in");
+    }
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-2744495-2', 'auto');
+    ga('send', 'pageview', {dimension1: '2017'});
+</script>
+</body>
+</html>
