@@ -2,7 +2,8 @@ package org.kuribko.videodb.parser;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kuribko.videodb.model.Movie;
+import org.kuribko.moviecatalog.model.Movie;
+import org.kuribko.moviecatalog.parser.NashnetSearchResultsParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
