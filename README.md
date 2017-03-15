@@ -1,3 +1,3 @@
 # MovieCatalog
-Server: SpringBoot, MongoDB
-Client: reactjs, redux
+Server: SpringBoot, MongoDB<br/>
+Client: reactjs, redux<br/>
