@@ -3,63 +3,13 @@ import {connect} from "react-redux";
 import {changeFilter, downloadFilterValues} from "../actions/filterActions";
 
 class Filter extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            items: [],
-            selected: []
-        };
-    }
-
     componentDidMount() {
-        // this.download();
         this.props.downloadFilterValues(this.props.fieldName, this.props.url);
     }
 
-    download() {
-        // let url = this.props.url;
-        // console.log("GET from ", url);
-        // axios.get(url)
-        //     .then(res => {
-        //         let result = res.data;
-        //         // console.log("GET result: ", result);
-        //         this.setState({items: result});
-        //     });
-
-    }
-
     onItemClick(e) {
-        let fieldName = this.props.fieldName;
-        let item = e.target.text;
-        // let items = this.state.items;
-        // // let items = this.props.movies.filter.filters[]
-        // let selected = this.state.selected;
-        //
-        // let index = items.indexOf(item);
-        // // let index = this.state.items.indexOf(item);
-        //
-        //
-        // if (index >= 0) {
-        //     items.splice(index, 1);
-        //     selected.push(item);
-        //     selected.sort();
-        // } else {
-        //     items.push(item);
-        //     selected.splice(selected.indexOf(item), 1);
-        //     items.sort();
-        // }
-        //
-        // this.setState({
-        //     items: items,
-        //     selected: selected
-        // })
 
-        // this.props.onFilterChanged(this.props.fieldName, this.state.selected);
-
-        // let f = this.props.movies.filter.filters;
-        // f[this.props.fieldName] = this.state.selec
-        this.props.changeFilter(fieldName, item);
+        this.props.changeFilter(this.props.fieldName, e.target.text);
     }
 
 
@@ -70,8 +20,6 @@ class Filter extends React.Component {
         } else {
             filters = {items: [], selected: []};
         }
-        // console.log("FILTERS: ", filters);
-
 
         return (
 

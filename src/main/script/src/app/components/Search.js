@@ -4,8 +4,6 @@ import {changeSearchString} from "../actions/filterActions";
 
  class Search extends React.Component {
     handleChange(e){
-        // console.log("Search: ", e.target.value);
-        // this.props.onSearchChanged(e.target.value);
         this.props.changeSearchString(e.target.value)
     }
     
