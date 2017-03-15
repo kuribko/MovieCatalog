@@ -1,4 +1,4 @@
-package org.kuribko.videodb;
+package org.kuribko.moviecatalog;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

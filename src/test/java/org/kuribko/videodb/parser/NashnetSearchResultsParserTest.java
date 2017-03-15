@@ -1,4 +1,4 @@
-package org.kuribko.videodb.parser;
+package org.kuribko.moviecatalog.parser;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
