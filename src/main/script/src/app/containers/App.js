@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import Config from 'Config';
 
 import {Header} from "../components/Header";
-import Main from "../components/Main";
+import {Main} from "../components/Main";
 import {changeSearchString} from "../actions/filterActions";
 
 class App extends React.Component {

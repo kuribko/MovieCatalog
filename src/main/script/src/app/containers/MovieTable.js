@@ -1,5 +1,5 @@
 import React from "react";
-import Movie from "./Movie";
+import {Movie} from "../components/Movie";
 import {connect} from "react-redux";
 
 class MovieTable extends React.Component {
