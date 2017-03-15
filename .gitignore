@@ -25,3 +25,5 @@ nbdist/
 
 ### reactjs ###
 node_modules
+/.mvn/
+/mvnw.cmd
