@@ -4,11 +4,15 @@ import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 
 import filterReducer from "./reducers/filterReducer";
+import syncReducer from "./reducers/syncReducer";
+
+const rootReducer = combineReducers({
+    filterReducer,
+    syncReducer
+});
 
 export default createStore(
-    combineReducers({
-        filterReducer
-    }),
+    rootReducer,
     {},
     applyMiddleware(
         // logger(),

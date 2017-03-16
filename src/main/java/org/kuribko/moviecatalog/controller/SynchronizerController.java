@@ -70,12 +70,12 @@ public class SynchronizerController {
     @RequestMapping("/synchronizer/start")
     public String start() {
         nashNetSynchronizationService.start();
-        return "sse started";
+        return "started";
     }
 
     @RequestMapping("/synchronizer/stop")
     public String stop() {
         nashNetSynchronizationService.stop();
-        return "sse stopped";
+        return "stopped";
     }
 }
