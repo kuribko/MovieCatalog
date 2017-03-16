@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "../containers/Search";
+import Synchronizer from "../containers/Synchronizer";
 
 export const Header = (props)=> {
     return (
@@ -13,9 +14,9 @@ export const Header = (props)=> {
 
                         <Search/>
 
-                        <ul className="nav navbar-nav navbar-right col-md-3">
-                            <li><a href="/admin">Панель администрирования</a></li>
-                        </ul>
+                        <div className="nav navbar-nav navbar-right col-md-3">
+                            <Synchronizer/>
+                        </div>
                     </div>
                 </nav>
             </div>

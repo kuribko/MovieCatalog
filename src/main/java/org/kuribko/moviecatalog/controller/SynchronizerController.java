@@ -8,7 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.io.IOException;
@@ -16,7 +18,9 @@ import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-@Controller()
+@CrossOrigin
+
+@RestController()
 @RequestMapping(value = "/admin")
 public class SynchronizerController {
 
@@ -64,12 +68,14 @@ public class SynchronizerController {
     }
 
     @RequestMapping("/synchronizer/start")
-    public void start() {
+    public String start() {
         nashNetSynchronizationService.start();
+        return "sse started";
     }
 
     @RequestMapping("/synchronizer/stop")
-    public void stop() {
+    public String stop() {
         nashNetSynchronizationService.stop();
+        return "sse stopped";
     }
 }

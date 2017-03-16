@@ -1,4 +1,4 @@
-import Constants from "../components/Constants";
+import Constants from "../Constants";
 import Axios from 'axios';
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Filter from "../containers/Filter";
-import Constants from "./Constants";
+import Constants from "../Constants";
 
 const FILTERS = [
     {

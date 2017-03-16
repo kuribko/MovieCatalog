@@ -15,8 +15,8 @@ class Filter extends React.Component {
 
     render() {
         let filters;
-        if (this.props.fieldName in this.props.allFilters) {
-            filters = this.props.allFilters[this.props.fieldName];
+        if (this.props.fieldName in this.props.filterReducer.filters) {
+            filters = this.props.filterReducer.filters[this.props.fieldName];
         } else {
             filters = {items: [], selected: []};
         }
@@ -25,6 +25,7 @@ class Filter extends React.Component {
 
             <div>
                 <b>{this.props.listName}</b>
+
                 <ul className="filterList">
                     {filters.selected.map((item, i)=> {
                         return (
@@ -48,7 +49,7 @@ class Filter extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        allFilters: state.filterReducer.filters
+        filterReducer: state.filterReducer
     }
 }
 

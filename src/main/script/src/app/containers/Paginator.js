@@ -5,7 +5,7 @@ import {changePage} from "../actions/filterActions";
 class Paginator extends React.Component {
 
     getPageNumbers(currentPage) {
-        console.log("current page: ", currentPage);
+        // console.log("current page: ", currentPage);
         const range = 2;
 
         let dif = 0;
@@ -20,7 +20,7 @@ class Paginator extends React.Component {
         for (var i = start; i <= end; i++) {
             pages.push(i);
         }
-        console.log("start and end", start, end);
+        // console.log("start and end", start, end);
         return pages;
     }
 
