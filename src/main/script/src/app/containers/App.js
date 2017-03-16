@@ -17,10 +17,6 @@ class App extends React.Component {
         console.log("ENV: ", Config.env);
     }
 
-    componentDidMount() {
-        this.props.changeSearchString("");
-    }
-
     render() {
         return (
             <div>
@@ -29,6 +25,7 @@ class App extends React.Component {
                     <Paginator/>
                     <MovieTable/>
                     <Filters/>
+                    <Paginator/>
                 </Main>
             </div>
         )

@@ -34,12 +34,14 @@ export function initSyncEventListener() {
         if (typeof(EventSource) !== "undefined") {
             console.log("sse-url", Constants.URLS.SSE.events)
             eSource = new EventSource(Constants.URLS.SSE.events);
+            
             eSource.onmessage = function (event) {
                 var syncEvent = JSON.parse(event.data);
                 dispatch({
                     type: "SYNC_EVENT_RECEIVED",
                     payload: syncEvent
                 })
+                
             };
 
             dispatch({

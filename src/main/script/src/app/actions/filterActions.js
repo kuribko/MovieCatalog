@@ -11,11 +11,7 @@ export function changeSearchString(searchString) {
         })
 
         dispatch(
-            getMovies(
-                searchString,
-                getState().filterReducer.filters,
-                getState().filterReducer.currentPage
-            )
+            getMovies()
         );
     };
 }
@@ -52,17 +48,18 @@ export function changeFilter(name, value) {
         })
 
         dispatch(
-            getMovies(
-                getState().filterReducer.searchString,
-                filters,
-                getState().filterReducer.currentPage)
+            getMovies()
         );
 
     };
 }
 
-export function getMovies(searchString, filters, currentPage) {
-    return (dispatch) => {
+export function getMovies() {
+    return (dispatch, getState) => {
+
+        let searchString = getState().filterReducer.searchString;
+        let filters = getState().filterReducer.filters;
+        let currentPage = getState().filterReducer.currentPage;
 
         let filterString = "";
         for (var key in filters) {
@@ -83,6 +80,8 @@ export function getMovies(searchString, filters, currentPage) {
                 }
 
                 dispatch(e)
+
+                document.title = "MovieCatalog ("+result.totalCount+")";
             })
             .catch(error => {
                 throw(error);
@@ -136,6 +135,6 @@ export function changePage(pageNumber) {
             payload: pageNumber
         })
 
-        dispatch(getMovies(getState().filterReducer.searchString, getState().filterReducer.filters, pageNumber));
+        dispatch(getMovies());
     }
 }

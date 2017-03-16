@@ -1,8 +1,13 @@
 import React from "react";
 import {Movie} from "../components/Movie";
 import {connect} from "react-redux";
+import {changeSearchString} from "../actions/filterActions";
 
 class MovieTable extends React.Component {
+    componentDidMount() {
+        this.props.changeSearchString("");
+    }
+
     render() {
         return (
             <div className="col-md-10">
@@ -22,4 +27,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(MovieTable)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeSearchString: (searchString) => {
+            dispatch(changeSearchString(searchString));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieTable)

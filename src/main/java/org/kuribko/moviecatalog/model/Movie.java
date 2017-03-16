@@ -24,6 +24,10 @@ public class Movie {
     private String cover;
     private List<String> genres;
     private List<String> countries;
+    private List<String> producers;
+    private List<String> actors;
+    private float kinopoiskRating;
+    private float imdbRating;
 
     public Movie() {
     }
@@ -115,6 +119,38 @@ public class Movie {
 
     public String getId() {
         return id;
+    }
+
+    public List<String> getProducers() {
+        return producers;
+    }
+
+    public void setProducers(List<String> producers) {
+        this.producers = producers;
+    }
+
+    public List<String> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<String> actors) {
+        this.actors = actors;
+    }
+
+    public float getKinopoiskRating() {
+        return kinopoiskRating;
+    }
+
+    public void setKinopoiskRating(float kinopoiskRating) {
+        this.kinopoiskRating = kinopoiskRating;
+    }
+
+    public float getImdbRating() {
+        return imdbRating;
+    }
+
+    public void setImdbRating(float imdbRating) {
+        this.imdbRating = imdbRating;
     }
 
     @Override

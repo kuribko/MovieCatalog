@@ -6,6 +6,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.kuribko.moviecatalog.model.Movie;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +19,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class NashnetSearchResultsParser implements SearchResultsParser {
+    private Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Value("${nashnet.homepage}")
     private String homepage;
 
     @Override
     public List<Movie> parseHtml(String html) {
+
         Document doc = Jsoup.parse(html);
         return parse(doc);
     }
@@ -56,16 +61,37 @@ public class NashnetSearchResultsParser implements SearchResultsParser {
             movie.setYear(year);
 
             // countries
-            String countriesString = yearAndCountries.substring(yearAndCountries.indexOf(",")+1);
+            String countriesString = yearAndCountries.substring(yearAndCountries.indexOf(",") + 1);
             List<String> countries = Arrays.asList(countriesString.replaceAll("\\p{C}", "").split("-"))
-                    .stream().map(String::trim).filter(s->!"".equals(s)).collect(Collectors.toList());
+                    .stream().map(String::trim).filter(s -> !"".equals(s)).collect(Collectors.toList());
             movie.setCountries(countries);
 
             // genres
-            String genre = yearNode.nextSibling().nextSibling().toString().trim();
+            Node genreNode = yearNode.nextSibling().nextSibling();
+            String genre = genreNode.toString().trim();
             List<String> genres = Arrays.asList(genre.replaceAll("\\p{C}", "").split("/"))
-                    .stream().map(String::trim).filter(s->!"".equals(s)).collect(Collectors.toList());
+                    .stream().map(String::trim).filter(s -> !"".equals(s)).collect(Collectors.toList());
             movie.setGenres(genres);
+
+            // producer
+            Node producerNode = genreNode.nextSibling();
+            String producer = "";
+            if (producerNode.childNodes().size() > 1) {
+                producer = producerNode.childNode(1).toString().trim();
+            }
+            List<String> producers = Arrays.asList(producer.replaceAll("\\p{C}", "").split(","))
+                    .stream().map(String::trim).filter(s -> !"".equals(s)).collect(Collectors.toList());
+            movie.setProducers(producers);
+
+            // actors
+            Node actorsNode = producerNode.nextSibling().nextSibling();
+            String actor = "";
+            if (actorsNode.childNodes().size() > 1) {
+                actor = actorsNode.childNode(1).toString().trim();
+            }
+            List<String> actors = Arrays.asList(actor.replaceAll("\\p{C}", "").split(","))
+                    .stream().map(String::trim).filter(s -> !"".equals(s)).collect(Collectors.toList());
+            movie.setActors(actors);
 
             // full info url
             String fullInfoUrl = homepage + m.select("a").first().attr("href");
@@ -73,14 +99,33 @@ public class NashnetSearchResultsParser implements SearchResultsParser {
 
             // cover
             String imgUrl = m.getElementsByClass("cover").first().attr("style");
-            imgUrl = homepage+imgUrl.substring(imgUrl.indexOf("url(")+4, imgUrl.indexOf(")"));
+            imgUrl = homepage + imgUrl.substring(imgUrl.indexOf("url(") + 4, imgUrl.indexOf(")"));
             movie.setCover(imgUrl);
 
+            // kinopoisk raiting
+            String kp = m.getElementsByClass("kp").first().text().trim();
+            float kinopoiskRating = 0;
+            try {
+                kinopoiskRating = Float.valueOf(kp);
+            } catch (NumberFormatException e) {
+                log.error(String.format("Could not transform kinopoiskRaiting to float. value=[%s] url=%s", kp, fullInfoUrl), e);
+            }
+            movie.setKinopoiskRating(kinopoiskRating);
+
+            // imdb raiting
+            String imdb = m.getElementsByClass("imdb").first().text().trim();
+            float imdbRating = 0;
+            try {
+                imdbRating = Float.valueOf(imdb);
+            } catch (NumberFormatException e) {
+                log.error(String.format("Could not transform kinopoiskRaiting to float. value=[%s] url=%s", imdb, fullInfoUrl), e);
+            }
+            movie.setImdbRating(imdbRating);
 
             movies.add(movie);
         }
 
-        if(movies.isEmpty()){
+        if (movies.isEmpty()) {
             return null;
         }
         return movies;
