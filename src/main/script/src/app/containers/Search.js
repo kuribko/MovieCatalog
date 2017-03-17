@@ -22,8 +22,8 @@ import {toggleFilterVisibility} from "../actions/filterActions";
                         <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
 
-                    <button  className="btn btn-primary">
-                        <span onClick={this.props.toggleFilterVisibility} className="glyphicon glyphicon-filter" aria-hidden="true"></span>
+                    <button onClick={this.props.toggleFilterVisibility} className="btn btn-primary">
+                        <span  className="glyphicon glyphicon-filter" aria-hidden="true"></span>
                     </button>
                 </span>
 
