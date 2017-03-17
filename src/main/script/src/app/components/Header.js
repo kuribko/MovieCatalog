@@ -5,21 +5,19 @@ import Synchronizer from "../containers/Synchronizer";
 export const Header = (props)=> {
     return (
         <header>
-            <div className="container navbar-inverse navbar-fixed-top">
-                <nav>
+                <nav className="container navbar-inverse navbar-fixed-top">
                     <div className="container-fluid">
-                        <div className="navbar-header col-md-3">
+                        <div className="navbar-header col-lg-3 col-md-3 col-sm-3 col-xs-0">
                             <a className="navbar-brand" href="/">Movie Catalog</a>&nbsp;
                         </div>
 
                         <Search/>
 
-                        <div className="nav navbar-nav navbar-right col-md-3">
+                        <div className="nav navbar-right col-md-3 col-md-3 col-sm-3 col-xs-6 ">
                             <Synchronizer/>
                         </div>
                     </div>
                 </nav>
-            </div>
         </header>
     )
 

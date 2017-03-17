@@ -9,7 +9,7 @@ export const Movie = (props)=> {
     }
 
     return (
-        <div className="movie-cell col-md-3">
+        <div className="movie-cell col-lg-3 col-md-4 col-sm-6">
             <a href={movie.fullInfoUrl}>
                 <div className="movie text-center">
 

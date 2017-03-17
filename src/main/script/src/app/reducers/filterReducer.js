@@ -3,6 +3,7 @@ const filterReducer = (state = {
     filters: {},
     currentPage: 1,
     searchResults: {movies: []},
+    filtersVisible: false
 }, action) => {
     switch (action.type) {
         case "SEARCH_STRING_CHANGED":
@@ -35,6 +36,12 @@ const filterReducer = (state = {
             state = {
                 ...state,
                 currentPage: action.payload
+            };
+            break;
+        case "TOGGLE_FILTER_VISIBILITY":
+            state = {
+                ...state,
+                filtersVisible: !state.filtersVisible
             };
             break;
     }

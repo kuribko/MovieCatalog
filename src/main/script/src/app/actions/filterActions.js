@@ -2,8 +2,15 @@ import Constants from "../Constants";
 import Axios from 'axios';
 
 
-export function changeSearchString(searchString) {
+export function toggleFilterVisibility() {
+    return (dispatch, getState) => {
+        dispatch({
+            type: "TOGGLE_FILTER_VISIBILITY",
+        })
+    };
+}
 
+export function changeSearchString(searchString) {
     return (dispatch, getState) => {
         dispatch({
             type: "SEARCH_STRING_CHANGED",

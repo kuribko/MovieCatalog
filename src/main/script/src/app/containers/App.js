@@ -8,7 +8,7 @@ import {Header} from "../components/Header";
 import {Main} from "../components/Main";
 import {changeSearchString} from "../actions/filterActions";
 import MovieTable from "../containers/MovieTable";
-import Filters from "../components/Filters";
+import Filters from "./Filters";
 import Paginator from "./Paginator";
 
 class App extends React.Component {

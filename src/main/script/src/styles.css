@@ -1,5 +1,4 @@
 body {
-    /*     background-color:#e8e8e8; */
 }
 
 .main {
@@ -7,6 +6,38 @@ body {
     background-color: #e8e8e8;
     padding-bottom: 50px;
 }
+
+/*xs*/
+@media screen and (max-width: 768px) {
+    /*body {*/
+        /*margin: 0px;*/
+    /*}*/
+
+    .main {
+        padding-top: 100px;
+    }
+    .navbar-header{
+        display: none;
+    }
+
+}
+
+/*sm*/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    /*body {*/
+        /*margin: 0px;*/
+    /*}*/
+
+    .container{
+        width: 100%;
+    }
+
+    .navbar-brand{
+        font-size: 12pt;
+    }
+
+}
+
 
 .navbar-inverse.navbar-fixed-top {
     background: rgba(0, 0, 0, 0.7);
@@ -19,6 +50,7 @@ body {
 
 #search {
     margin-top: 8px;
+    padding-bottom: 8px;
     float: left;
 }
 
@@ -34,7 +66,7 @@ body {
     float: left;
 }
 
-.movieTable{
+.movieTable {
     padding-bottom: 24px;
 }
 
@@ -43,7 +75,7 @@ body {
     display: inline-block;
     vertical-align: top;
     /*margin-bottom: 16px;*/
-    padding: 24px;
+    padding: 20px;
     padding-top: 16px;
     padding-bottom: 8px
 }
@@ -102,7 +134,6 @@ body {
     color: #1f7fdc;
 }
 
-
 .imdb {
     right: 24px;
     top: 16px;
@@ -138,18 +169,21 @@ body {
 
 .filter {
     float: left;
-    width: 25%
+    /*     width: 33% */
 }
 
-.filterTitle:hover{
-    color: red;
-    cursor: pointer;
+ul.filterList {
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
 }
 
-.filterItem{
+.filterItem {
     display: block;
-    width: 50%;
-    float: left;
 }
 
 .active {
@@ -159,12 +193,6 @@ body {
 
 ul li.active + li:not(.active) {
     margin-top: 10px;
-}
-
-ul.filterList {
-    padding-left: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .pagination {
@@ -177,6 +205,7 @@ a .movie {
 
 a:hover {
     text-decoration: none;
+    color: red;
 }
 
 a:visited {

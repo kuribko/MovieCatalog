@@ -12,7 +12,7 @@ class Filter extends React.Component {
         this.props.changeFilter(this.props.fieldName, e.target.text);
     }
 
-    clearSelected(){
+    clearSelected() {
         console.log("clear selected");
         this.props.changeFilter(this.props.fieldName, "");
     }
@@ -27,8 +27,17 @@ class Filter extends React.Component {
 
         return (
 
-            <div className="filter">
-                <b><span onClick={this.clearSelected.bind(this)} className="filterTitle">{this.props.listName}</span></b>
+            <div className="filter col-md-6">
+                <span className="filterTitle">
+                    <b>{this.props.listName}</b>
+                    <button type="button"
+                            className="close"
+                            aria-label="Close"
+                            onClick={this.clearSelected.bind(this)}
+                    >
+                        <span className="filterClear" aria-hidden="true">&times;</span>
+                    </button>
+                </span>
 
                 <div>
                     <ul className="filterList">
@@ -41,7 +50,6 @@ class Filter extends React.Component {
                         })}
                     </ul>
                 </div>
-
                 <div>
                     <ul className="filterList">
                         {filters.items.map((item, i)=> {

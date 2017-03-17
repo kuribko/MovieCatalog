@@ -1,11 +1,43 @@
 body {
-    /*     background-color:#e8e8e8; */
 }
 
 .main {
-    padding-top: 65px;
+    padding-top: 55px;
     background-color: #e8e8e8;
+    padding-bottom: 50px;
 }
+
+/*xs*/
+@media screen and (max-width: 768px) {
+    /*body {*/
+        /*margin: 0px;*/
+    /*}*/
+
+    .main {
+        padding-top: 100px;
+    }
+    .navbar-header{
+        display: none;
+    }
+
+}
+
+/*sm*/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    /*body {*/
+        /*margin: 0px;*/
+    /*}*/
+
+    .container{
+        width: 100%;
+    }
+
+    .navbar-brand{
+        font-size: 12pt;
+    }
+
+}
+
 
 .navbar-inverse.navbar-fixed-top {
     background: rgba(0, 0, 0, 0.7);
@@ -18,13 +50,14 @@ body {
 
 #search {
     margin-top: 8px;
+    padding-bottom: 8px;
     float: left;
 }
 
 #synchronizer {
     margin-top: 8px;
     color: white;
-    float:right;
+    float: right;
 }
 
 #syncText {
@@ -33,32 +66,38 @@ body {
     float: left;
 }
 
+.movieTable {
+    padding-bottom: 24px;
+}
+
 .movie-cell {
     float: none;
     display: inline-block;
     vertical-align: top;
     /*margin-bottom: 16px;*/
-    padding: 8px;
+    padding: 20px;
+    padding-top: 16px;
+    padding-bottom: 8px
 }
 
 .movie {
-    padding: 8px;
     /*width: 25%;*/
     /*float: right;*/
     /*margin: 8px;*/
     border: 1px solid #dddddd;
     border-radius: 4px;
-    background: #f5f5f5
+    background: #f5f5f5;
+    padding: 8px
 }
 
 .movie:hover {
-    padding: 8px;
     /*width: 25%;*/
     /*float: right;*/
     /*margin: 8px;*/
     background: #eeeeee;
     border: 1px solid #dddddd;
     border-radius: 4px;
+    padding: 8px;
 }
 
 .cover {
@@ -70,23 +109,13 @@ body {
     margin: 6px
 }
 
-/*.coverContents{*/
-/*display: none;*/
-/*}*/
-
-/*.coverContents:hover{*/
-/*display: block;*/
-/*background: rgba(0, 0, 0, 0.7);*/
-/*color: white;*/
-/*}*/
-
 .cover .extended {
     width: 100%;
     height: 100%;
     opacity: 0;
     overflow: visible;
     padding: 5px;
-    padding-top: 50%;
+    padding-top: 30%;
     background-color: rgba(0, 0, 0, 0.6);
     box-sizing: border-box;
     transition: all 0.4s ease-in-out;
@@ -105,10 +134,27 @@ body {
     color: #1f7fdc;
 }
 
-/*.coverText {*/
-/*background: rgba(0, 0, 0, 0.3);*/
-/*color: white;*/
-/*}*/
+.imdb {
+    right: 24px;
+    top: 16px;
+    background: rgba(228, 187, 36, 0.7);
+}
+
+.kp {
+    left: 24px;
+    top: 16px;
+    background: rgba(255, 102, 0, 0.7);
+}
+
+.movie .kp, .movie .imdb {
+    padding: 1px 3px;
+    margin: 20px;
+    position: absolute;
+    display: inline-block;
+    font-style: normal;
+    border-radius: 3px;
+    color: white;
+}
 
 .panel {
     background: #f5f5f5;
@@ -118,6 +164,26 @@ body {
 
 #filterPanel {
     padding: 0px;
+    margin-bottom: 10px;
+}
+
+.filter {
+    float: left;
+    /*     width: 33% */
+}
+
+ul.filterList {
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+}
+
+.filterItem {
+    display: block;
 }
 
 .active {
@@ -127,12 +193,6 @@ body {
 
 ul li.active + li:not(.active) {
     margin-top: 10px;
-}
-
-ul.filterList {
-    padding-left: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .pagination {
@@ -145,6 +205,7 @@ a .movie {
 
 a:hover {
     text-decoration: none;
+    color: red;
 }
 
 a:visited {
