@@ -14,7 +14,7 @@ export const Header = (props)=> {
 
                         <Search/>
 
-                        <div className="nav navbar-right col-md-3 col-md-3 col-sm-3 col-xs-6 ">
+                        <div className="nav navbar-right col-md-3 col-md-3 col-sm-3 col-xs-4 ">
                             <Synchronizer/>
                         </div>
                     </div>
