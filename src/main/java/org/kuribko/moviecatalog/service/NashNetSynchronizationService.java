@@ -1,6 +1,6 @@
 package org.kuribko.moviecatalog.service;
 
-import org.kuribko.moviecatalog.controller.SynchronizerController;
+import org.kuribko.moviecatalog.controller.api.SynchronizerController;
 import org.kuribko.moviecatalog.events.SynchronizationEvent;
 import org.kuribko.moviecatalog.model.Movie;
 import org.kuribko.moviecatalog.parser.SearchResultsParser;

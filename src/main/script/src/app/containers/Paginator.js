@@ -4,9 +4,9 @@ import {changePage} from "../actions/filterActions";
 
 class Paginator extends React.Component {
 
-    getPageNumbers(currentPage) {
-        // console.log("current page: ", currentPage);
-        const range = 4;
+    getPageNumbers(currentPage, maxPage) {
+        // con sole.log("current page: ", currentPage);
+        const range = 2;
 
         let dif = 0;
         let start = currentPage - range;
@@ -16,6 +16,10 @@ class Paginator extends React.Component {
         }
 
         let end = currentPage + range + dif;
+        if (end > maxPage) {
+            end = maxPage;
+        }
+
         let pages = [];
         for (var i = start; i <= end; i++) {
             pages.push(i);
@@ -25,15 +29,16 @@ class Paginator extends React.Component {
     }
 
     render() {
-
         let currentPage = this.props.currentPage;
-        let pages = this.getPageNumbers(currentPage);
+        let maxPage = Math.ceil(this.props.count / this.props.pageSize);
+        let pages = this.getPageNumbers(currentPage, maxPage);
 
         return (
             <nav aria-label="Page navigation" className="text-center">
                 <b>
                     <ul className="pagination">
-                        <li onClick={ ()=> this.props.changePage(this.props.currentPage-1)}>
+
+                        <li onClick={ ()=> this.props.changePage(this.props.currentPage-1)} className={currentPage===1 && "disabled"}>
                             <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
@@ -57,7 +62,7 @@ class Paginator extends React.Component {
                             })
                         }
 
-                        <li onClick={ ()=> this.props.changePage(this.props.currentPage+1)}>
+                        <li onClick={ ()=> this.props.changePage(this.props.currentPage+1)} className={currentPage===maxPage && "disabled"}>
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
@@ -71,7 +76,9 @@ class Paginator extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        currentPage: state.filterReducer.currentPage
+        currentPage: state.filterReducer.currentPage,
+        count: state.filterReducer.searchResults.count,
+        pageSize: state.filterReducer.searchResults.pageSize
     }
 }
 

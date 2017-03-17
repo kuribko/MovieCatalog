@@ -1,4 +1,4 @@
-package org.kuribko.moviecatalog.controller;
+package org.kuribko.moviecatalog.controller.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -8,13 +8,15 @@ public class SearchResults {
     private long count;
     private long totalCount;
     private int page;
+    private int pageSize;
     private List<Movie> movies;
 
-    public SearchResults(long count, long totalCount, List<Movie> movies, int page) {
+    public SearchResults(long count, long totalCount, List<Movie> movies, int page, int pageSize) {
         this.count = count;
         this.movies = movies;
         this.totalCount = totalCount;
         this.page = page;
+        this.pageSize = pageSize;
     }
 
     public List<Movie> getMovies() {
@@ -47,5 +49,13 @@ public class SearchResults {
 
     public void setPage(int page) {
         this.page = page;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
     }
 }

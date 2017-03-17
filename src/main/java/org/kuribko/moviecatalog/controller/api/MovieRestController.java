@@ -40,7 +40,7 @@ public class MovieRestController {
         long resultsCount = movieService.count(searchString, requestedGenres, requestedCountries);
         log.info(String.format("Returning %d movies", movies.size()));
 
-        return new SearchResults(resultsCount, totalMovies, movies, page);
+        return new SearchResults(resultsCount, totalMovies, movies, page, MOVIES_PER_PAGE);
     }
 
     @RequestMapping(value = {"/genres"})

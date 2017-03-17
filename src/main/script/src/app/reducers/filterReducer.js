@@ -33,6 +33,11 @@ const filterReducer = (state = {
             state.filters[action.fieldName] = action.payload
             break;
         case "PAGE_CHANGED":
+            let maxPage = Math.ceil(state.searchResults.count / state.searchResults.pageSize);
+            if(action.payload>maxPage){
+                break
+            }
+            
             state = {
                 ...state,
                 currentPage: action.payload
