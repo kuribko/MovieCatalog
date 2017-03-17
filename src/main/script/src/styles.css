@@ -147,11 +147,14 @@ body {
 .year {
     background: rgba(51, 122, 183, 0.7);
     width: 50px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    top: 270px;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*margin: 0 auto;*/
+    /*top: 8px;*/
+    /*font-size: 85%;*/
 
+    top: 274px;
+    right: 40px;
 }
 
 .imdb {
