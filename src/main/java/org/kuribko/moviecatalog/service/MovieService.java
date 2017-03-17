@@ -17,8 +17,8 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
-    public List<Movie> search(String searchString, List<String> genres, List<String> requestedCountries, int skip, int limit){
-        return movieRepository.search(searchString, genres, requestedCountries, skip, limit);
+    public List<Movie> search(String searchString, List<String> genres, List<String> requestedCountries, int skip, int limit, String sortField){
+        return movieRepository.search(searchString, genres, requestedCountries, skip, limit, sortField);
     }
 
     public Movie findOneByUrl(String url){

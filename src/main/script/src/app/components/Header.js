@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "../containers/Search";
 import Synchronizer from "../containers/Synchronizer";
+import Sorter from "../containers/Sorter";
 
 export const Header = (props)=> {
     return (

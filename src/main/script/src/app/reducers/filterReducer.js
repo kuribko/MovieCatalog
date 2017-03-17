@@ -3,7 +3,8 @@ const filterReducer = (state = {
     filters: {},
     currentPage: 1,
     searchResults: {movies: []},
-    filtersVisible: false
+    filtersVisible: false,
+    sortField: "imdb"
 }, action) => {
     switch (action.type) {
         case "SEARCH_STRING_CHANGED":
@@ -37,7 +38,7 @@ const filterReducer = (state = {
             if(action.payload>maxPage){
                 break
             }
-            
+
             state = {
                 ...state,
                 currentPage: action.payload
@@ -47,6 +48,12 @@ const filterReducer = (state = {
             state = {
                 ...state,
                 filtersVisible: !state.filtersVisible
+            };
+            break;
+        case "SORT_CHANGED":
+            state = {
+                ...state,
+                sortField: action.payload
             };
             break;
     }

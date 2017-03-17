@@ -10,6 +10,20 @@ export function toggleFilterVisibility() {
     };
 }
 
+export function changeSort(fieldName) {
+    return (dispatch, getState) => {
+        dispatch({
+            type: "SORT_CHANGED",
+            payload: fieldName
+        })
+
+        dispatch(
+            getMovies()
+        );
+    };
+}
+
+
 export function changeSearchString(searchString) {
     return (dispatch, getState) => {
         dispatch({
@@ -31,14 +45,14 @@ export function changeFilter(name, value) {
         let items = filters[name].items;
         let selected = filters[name].selected;
 
-        if(value===""){
-            selected.forEach((item)=>{
+        if (value === "") {
+            selected.forEach((item)=> {
                 items.push(item);
             })
             selected = [];
             items.sort();
             console.log("selected: ", selected);
-        }else {
+        } else {
             let index = items.indexOf(value);
 
             if (index >= 0) {
@@ -74,13 +88,14 @@ export function getMovies() {
 
         let searchString = getState().filterReducer.searchString;
         let filters = getState().filterReducer.filters;
-        let currentPage = getState().filterReducer.currentPage;
+        let currentPage = "&p=" + getState().filterReducer.currentPage;
+        let sortField = "&sort=" + getState().filterReducer.sortField;
 
         let filterString = "";
         for (var key in filters) {
             filterString = filterString + getFiltersString(key, filters[key].selected);
         }
-        let url = Constants.URLS.movies + searchString + filterString+"&p="+currentPage;
+        let url = Constants.URLS.movies + searchString + filterString + currentPage+sortField;
 
         console.log("GET from ", url);
         // Returns a promise
@@ -95,14 +110,14 @@ export function getMovies() {
                 }
 
                 dispatch(e)
-                
+
                 let count;
-                if(result.totalCount === result.count){
+                if (result.totalCount === result.count) {
                     count = result.totalCount;
-                }else{
-                    count= result.count+"/"+result.totalCount
+                } else {
+                    count = result.count + "/" + result.totalCount
                 }
-                document.title = "Movies ("+count+")";
+                document.title = "Movies (" + count + ")";
             })
             .catch(error => {
                 throw(error);

@@ -34,11 +34,13 @@ class Paginator extends React.Component {
         let pages = this.getPageNumbers(currentPage, maxPage);
 
         return (
+
             <nav aria-label="Page navigation" className="text-center">
                 <b>
                     <ul className="pagination">
 
-                        <li onClick={ ()=> this.props.changePage(this.props.currentPage-1)} className={currentPage===1 && "disabled"}>
+                        <li onClick={ ()=> this.props.changePage(this.props.currentPage-1)}
+                            className={currentPage===1 && "disabled"}>
                             <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
@@ -48,7 +50,8 @@ class Paginator extends React.Component {
                             pages.map((page)=> {
                                 if (page === currentPage) {
                                     return (
-                                        <li key={page} className="active" onClick={ ()=> this.props.changePage(page)}>
+                                        <li key={page} className="active"
+                                            onClick={ ()=> this.props.changePage(page)}>
                                             <a href="#">{page}</a>
                                         </li>
                                     )
@@ -62,7 +65,8 @@ class Paginator extends React.Component {
                             })
                         }
 
-                        <li onClick={ ()=> this.props.changePage(this.props.currentPage+1)} className={currentPage===maxPage && "disabled"}>
+                        <li onClick={ ()=> this.props.changePage(this.props.currentPage+1)}
+                            className={currentPage===maxPage && "disabled"}>
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
@@ -70,6 +74,7 @@ class Paginator extends React.Component {
                     </ul>
                 </b>
             </nav>
+            
         )
     }
 }

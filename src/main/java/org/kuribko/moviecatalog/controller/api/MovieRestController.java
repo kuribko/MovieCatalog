@@ -27,7 +27,8 @@ public class MovieRestController {
     public SearchResults search(@RequestParam(value = "q", required = false) String searchString,
                                 @RequestParam(value = "genre", required = false) List<String> requestedGenres,
                                 @RequestParam(value = "country", required = false) List<String> requestedCountries,
-                                @RequestParam(value = "p", required = false, defaultValue = "1") int page) {
+                                @RequestParam(value = "p", required = false, defaultValue = "1") int page,
+                                @RequestParam(value = "sort", required = false) String sortField) {
         if (searchString == null) {
             searchString = "";
         } else {
@@ -36,7 +37,7 @@ public class MovieRestController {
 
         List<Movie> movies;
         long totalMovies = movieService.count();
-        movies = movieService.search(searchString, requestedGenres, requestedCountries, page-1, MOVIES_PER_PAGE);
+        movies = movieService.search(searchString, requestedGenres, requestedCountries, page-1, MOVIES_PER_PAGE, sortField);
         long resultsCount = movieService.count(searchString, requestedGenres, requestedCountries);
         log.info(String.format("Returning %d movies", movies.size()));
 

@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {changeSearchString} from "../actions/filterActions";
 import {toggleFilterVisibility} from "../actions/filterActions";
+import Sorter from "./Sorter";
+import {changeSort} from "../actions/filterActions";
 
 class Search extends React.Component {
     handleChange(e) {
@@ -26,18 +28,26 @@ class Search extends React.Component {
 
                 </input>
 
+                <span className="input-group-btn dropdown">
 
-
-                <span className="input-group-btn">
                     <button className="btn btn-default hidden" type="submit">
                         <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
 
+                        <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span className="glyphicon glyphicon-sort" aria-hidden="true"></span>
+                        </button>
+                        <ul className="dropdown-menu">
+                            <li><a onClick={()=>this.props.changeSort("imdb")} href="#">рейтинг IMDB</a></li>
+                            <li><a onClick={()=>this.props.changeSort("kp")} href="#">рейтинг КиноПоиска</a></li>
+                            <li><a onClick={()=>this.props.changeSort("year")} href="#">год</a></li>
+                        </ul>
+
                     <button onClick={this.props.toggleFilterVisibility} className="btn btn-primary">
                         <span className="glyphicon glyphicon-filter" aria-hidden="true"></span>
                     </button>
-                </span>
 
+                </span>
 
             </div>
         )
@@ -57,7 +67,10 @@ const mapDispatchToProps = (dispatch) => {
         },
         toggleFilterVisibility: () => {
             dispatch(toggleFilterVisibility());
-        }
+        },
+        changeSort: (fieldName) => {
+            dispatch(changeSort(fieldName));
+        },
     }
 }
 

@@ -23,6 +23,8 @@ public class MovieController {
     public String search(@RequestParam(value = "q", required = false) String searchString,
                          @RequestParam(value = "genre", required = false) List<String> requestedGenres,
                          @RequestParam(value = "country", required = false) List<String> requestedCountries,
+                         @RequestParam(value = "p", required = false, defaultValue = "1") int page,
+                         @RequestParam(value = "sort", required = false) String sortField,
                          Model model) {
 
         if (searchString == null) {
@@ -38,7 +40,7 @@ public class MovieController {
             results = movieService.findAll();
             totalMovies = Long.toString(movieService.count());
         } else {
-            results = movieService.search(searchString, requestedGenres, requestedCountries, 0, -1);
+            results = movieService.search(searchString, requestedGenres, requestedCountries, page, 24, Movie.FIELD_YEAR);
             totalMovies = results.size() + "/" + movieService.count();
         }
 

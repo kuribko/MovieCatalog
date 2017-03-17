@@ -12,9 +12,9 @@ body {
     /*body {*/
     /*margin: 0px;*/
     /*}*/
-    .main {
-        padding-top: 100px;
-    }
+    /*.main {*/
+        /*padding-top: 100px;*/
+    /*}*/
 
     .navbar-header {
         display: none;
@@ -219,6 +219,10 @@ ul li.active + li:not(.active) {
 
 .pagination {
     margin: 0px;
+}
+
+.sorter{
+    /*float: right;*/
 }
 
 a .movie {

@@ -6,14 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.*;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class MovieRepositoryImpl implements MovieRepositoryCustom {
 
@@ -58,13 +56,23 @@ public class MovieRepositoryImpl implements MovieRepositoryCustom {
 //    }
 
     @Override
-    public List<Movie> search(String searchString, List<String> genres, List<String> countries, int pageNumber, int pageSize) {
+    public List<Movie> search(String searchString, List<String> genres, List<String> countries, int pageNumber, int pageSize, String sortField) {
 //        log.info(String.format("Querying DB [searchString='%s', skip=%d, limit=%d genres=%s, countries=%s]", searchString, skip, limit, genres, countries));
         Query query = searchCriteriaBuilder.createSearchQuery(searchString, genres, countries);
         query.with(new PageRequest(pageNumber, pageSize));
+
+        query.with(new Sort(Sort.Direction.DESC, getVerifiedSortField(sortField)));
         return mongoTemplate.find(query, Movie.class);
     }
 
+    private String getVerifiedSortField(String sortField){
+        switch (sortField) {
+            case "imdb": return Movie.FIELD_IMDB_RAITING;
+            case "kp": return Movie.FIELD_KINOPOISK_RAITING;
+            default:
+                return Movie.FIELD_YEAR;
+        }
+    }
 
 
     @Override
