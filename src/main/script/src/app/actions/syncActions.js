@@ -16,7 +16,7 @@ function invokeSync(url) {
         Axios.get(url)
             .then(response => {
                 let result = response.data;
-                console.log("SYNC status: ", result);
+                // console.log("SYNC status: ", result);
 
                 dispatch({
                     type: "SYNC_STATUS_CHANGED",
@@ -41,7 +41,11 @@ export function initSyncEventListener() {
                     type: "SYNC_EVENT_RECEIVED",
                     payload: syncEvent
                 })
-                
+
+                dispatch({
+                    type: "SYNC_STATUS_CHANGED",
+                    payload: syncEvent.status==="on"
+                })
             };
 
             dispatch({

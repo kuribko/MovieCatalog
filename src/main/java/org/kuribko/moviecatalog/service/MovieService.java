@@ -33,10 +33,10 @@ public class MovieService {
         Movie m = movieRepository.findOneByNameAndYear(movie.getRussianName(), movie.getOriginalName(), movie.getYear());
         if(m==null) {
             m = movieRepository.save(movie);
-            log.info("Saved: "+m);
+//            log.info("Saved: "+m);
             return true;
         }else{
-            log.info("Skipping save as it already exists: "+m);
+//            log.info("Skipping save as it already exists: "+m);
             return false;
         }
     }
@@ -53,4 +53,7 @@ public class MovieService {
         return movieRepository.findAllCountries();
     }
 
+    public long count(String searchString, List<String> requestedGenres, List<String> requestedCountries) {
+        return movieRepository.count(searchString, requestedGenres, requestedCountries);
+    }
 }

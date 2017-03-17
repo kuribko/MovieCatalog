@@ -5,8 +5,13 @@ import org.kuribko.moviecatalog.model.Movie;
 import java.util.List;
 
 public interface MovieRepositoryCustom {
-    public List<Movie> search(String name, List<String> genres, List<String> countries, int skip, int limit);
-    public Movie findOneByNameAndYear(String russianName, String originalName, int year);
-    public List<String> findAllGenres();
-    public List<String> findAllCountries();
+    List<Movie> search(String name, List<String> genres, List<String> countries, int skip, int limit);
+
+    Movie findOneByNameAndYear(String russianName, String originalName, int year);
+
+    List<String> findAllGenres();
+
+    List<String> findAllCountries();
+
+    long count(String searchString, List<String> requestedGenres, List<String> requestedCountries);
 }

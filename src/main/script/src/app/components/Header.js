@@ -9,7 +9,7 @@ export const Header = (props)=> {
                 <nav>
                     <div className="container-fluid">
                         <div className="navbar-header col-md-3">
-                            <a className="navbar-brand" href="/">Movie Catalog</a>
+                            <a className="navbar-brand" href="/">Movie Catalog</a>&nbsp;
                         </div>
 
                         <Search/>

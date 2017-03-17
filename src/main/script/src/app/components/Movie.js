@@ -23,7 +23,7 @@ export const Movie = (props)=> {
                                 <br/><br/>
                                 {movie.countries.join(", ")}
                                 <br/><br/>
-                                Режиссеры: {movie.producers !== null ? movie.producers.join(", ") : ""}
+                                Актеры: {movie.actors !== null ? movie.actors.slice(0,5).join(", ") : ""}
                             </small>
                         </div>
                     </div>

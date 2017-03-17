@@ -36,17 +36,11 @@ public class MovieRestController {
 
         List<Movie> movies;
         long totalMovies = movieService.count();
-        int skip = (page-1)*MOVIES_PER_PAGE;
-        //results and totalMovies
-//        if (isSearchAndFilterEmpty(searchString, requestedGenres, requestedCountries)) {
-//            movies = movieService.findAll();
-//        } else {
-//            movies = movieService.search(searchString, requestedGenres, requestedCountries, skip, MOVIES_PER_PAGE);
-//        }
-            movies = movieService.search(searchString, requestedGenres, requestedCountries, skip, MOVIES_PER_PAGE);
+        movies = movieService.search(searchString, requestedGenres, requestedCountries, page-1, MOVIES_PER_PAGE);
+        long resultsCount = movieService.count(searchString, requestedGenres, requestedCountries);
         log.info(String.format("Returning %d movies", movies.size()));
 
-        return new SearchResults(movies.size(), totalMovies, movies, page);
+        return new SearchResults(resultsCount, totalMovies, movies, page);
     }
 
     @RequestMapping(value = {"/genres"})

@@ -10,7 +10,7 @@ class MovieTable extends React.Component {
 
     render() {
         return (
-            <div className="col-md-10">
+            <div className="col-md-12 movieTable">
                 {
                     this.props.movies.map((movie)=> {
                         return <Movie key={movie.id} movie={movie}/>

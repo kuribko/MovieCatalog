@@ -3,15 +3,19 @@ import {connect} from "react-redux";
 import {changeFilter, downloadFilterValues} from "../actions/filterActions";
 
 class Filter extends React.Component {
+
     componentDidMount() {
         this.props.downloadFilterValues(this.props.fieldName, this.props.url);
     }
 
     onItemClick(e) {
-
         this.props.changeFilter(this.props.fieldName, e.target.text);
     }
 
+    clearSelected(){
+        console.log("clear selected");
+        this.props.changeFilter(this.props.fieldName, "");
+    }
 
     render() {
         let filters;
@@ -23,25 +27,32 @@ class Filter extends React.Component {
 
         return (
 
-            <div>
-                <b>{this.props.listName}</b>
+            <div className="filter">
+                <b><span onClick={this.clearSelected.bind(this)} className="filterTitle">{this.props.listName}</span></b>
 
-                <ul className="filterList">
-                    {filters.selected.map((item, i)=> {
-                        return (
-                            <li key={i} className="active">
-                                <a href="#" onClick={this.onItemClick.bind(this)}>{item}</a>
-                            </li>
-                        )
-                    })}
-                    {filters.items.map((item, i)=> {
-                        return (
-                            <li key={filters.selected.length+i}>
-                                <a href="#" onClick={this.onItemClick.bind(this)}>{item}</a>
-                            </li>
-                        )
-                    })}
-                </ul>
+                <div>
+                    <ul className="filterList">
+                        {filters.selected.map((item, i)=> {
+                            return (
+                                <li key={i} className="active filterItem small">
+                                    <a href="#" onClick={this.onItemClick.bind(this)}>{item}</a>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+
+                <div>
+                    <ul className="filterList">
+                        {filters.items.map((item, i)=> {
+                            return (
+                                <li className="filterItem small" key={filters.selected.length+i}>
+                                    <a href="#" onClick={this.onItemClick.bind(this)}>{item}</a>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }

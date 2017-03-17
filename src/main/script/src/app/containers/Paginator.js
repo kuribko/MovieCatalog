@@ -6,7 +6,7 @@ class Paginator extends React.Component {
 
     getPageNumbers(currentPage) {
         // console.log("current page: ", currentPage);
-        const range = 2;
+        const range = 4;
 
         let dif = 0;
         let start = currentPage - range;

@@ -10,7 +10,7 @@ public class SearchResults {
     private int page;
     private List<Movie> movies;
 
-    public SearchResults(int count, long totalCount, List<Movie> movies, int page) {
+    public SearchResults(long count, long totalCount, List<Movie> movies, int page) {
         this.count = count;
         this.movies = movies;
         this.totalCount = totalCount;

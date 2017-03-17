@@ -86,11 +86,14 @@ public class NashnetSearchResultsParser implements SearchResultsParser {
             // actors
             Node actorsNode = producerNode.nextSibling().nextSibling();
             String actor = "";
-            if (actorsNode.childNodes().size() > 1) {
-                actor = actorsNode.childNode(1).toString().trim();
+            List<String> actors = null;
+            if (actorsNode != null) {
+                if (actorsNode.childNodes().size() > 1) {
+                    actor = actorsNode.childNode(1).toString().trim();
+                }
+                actors = Arrays.asList(actor.replaceAll("\\p{C}", "").split(","))
+                        .stream().map(String::trim).filter(s -> !"".equals(s)).collect(Collectors.toList());
             }
-            List<String> actors = Arrays.asList(actor.replaceAll("\\p{C}", "").split(","))
-                    .stream().map(String::trim).filter(s -> !"".equals(s)).collect(Collectors.toList());
             movie.setActors(actors);
 
             // full info url

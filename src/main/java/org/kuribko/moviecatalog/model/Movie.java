@@ -1,7 +1,9 @@
 package org.kuribko.moviecatalog.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.TextScore;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -14,20 +16,30 @@ public class Movie {
     public static final String FIELD_YEAR = "year";
     public static final String FIELD_GENRES = "genres";
     public static final String FIELD_COUNTRIES = "countries";
+    public static final String FIELD_PRODUCERS = "producers";
+    public static final String FIELD_ACTORS = "actors";
+    public static final String FIELD_KINOPOISK_RAITING = "kinopoiskRating";
+    public static final String FIELD_IMDB_RAITING = "imdbRating";
 
     @Id
     private String id;
+//    @TextIndexed
     private String russianName;
+//    @TextIndexed
     private String originalName;
     private int year;
     private String fullInfoUrl;
     private String cover;
+//    @TextIndexed
     private List<String> genres;
     private List<String> countries;
     private List<String> producers;
     private List<String> actors;
     private float kinopoiskRating;
     private float imdbRating;
+
+//    @TextScore
+//    Float score;
 
     public Movie() {
     }

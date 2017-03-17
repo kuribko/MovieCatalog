@@ -22,19 +22,27 @@ export function changeFilter(name, value) {
         let filters = getState().filterReducer.filters;
 
         let items = filters[name].items;
-        // let items = this.props.movies.filter.filters[]
         let selected = filters[name].selected;
 
-        let index = items.indexOf(value);
-
-        if (index >= 0) {
-            items.splice(index, 1);
-            selected.push(value);
-            selected.sort();
-        } else {
-            items.push(value);
-            selected.splice(selected.indexOf(value), 1);
+        if(value===""){
+            selected.forEach((item)=>{
+                items.push(item);
+            })
+            selected = [];
             items.sort();
+            console.log("selected: ", selected);
+        }else {
+            let index = items.indexOf(value);
+
+            if (index >= 0) {
+                items.splice(index, 1);
+                selected.push(value);
+                selected.sort();
+            } else {
+                items.push(value);
+                selected.splice(selected.indexOf(value), 1);
+                items.sort();
+            }
         }
 
         filters[name] = {
@@ -80,8 +88,14 @@ export function getMovies() {
                 }
 
                 dispatch(e)
-
-                document.title = "MovieCatalog ("+result.totalCount+")";
+                
+                let count;
+                if(result.totalCount === result.count){
+                    count = result.totalCount;
+                }else{
+                    count= result.count+"/"+result.totalCount
+                }
+                document.title = "Movies ("+count+")";
             })
             .catch(error => {
                 throw(error);

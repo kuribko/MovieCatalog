@@ -74,10 +74,19 @@ public class NashNetSynchronizationService {
             log.info("Parsing page: " + url);
             try {
                 List<Movie> newMovies = new ArrayList<>();
-                List<Movie> movies = parser.parseFromUrl(url);
+
+
+                List<Movie> movies = null;
+                try {
+                    movies = parser.parseFromUrl(url);
+
+                }catch (RuntimeException e){
+                    log.error("Error in parser", e);
+                    throw e;
+                }
 
                 if(movies==null){
-                    log.info("Reached the of site. Stopping");
+                    log.info("Reached the end of site. Stopping");
                     stop();
                 }
 
