@@ -7,35 +7,7 @@ body {
     padding-bottom: 50px;
 }
 
-/*xs*/
-@media screen and (max-width: 768px) {
-    /*body {*/
-    /*margin: 0px;*/
-    /*}*/
-    /*.main {*/
-        /*padding-top: 100px;*/
-    /*}*/
 
-    .navbar-header {
-        display: none;
-    }
-
-}
-
-/*sm*/
-@media screen and (min-width: 768px) and (max-width: 992px) {
-    /*body {*/
-    /*margin: 0px;*/
-    /*}*/
-    .container {
-        width: 100%;
-    }
-
-    .navbar-brand {
-        font-size: 12pt;
-    }
-
-}
 
 .navbar-inverse.navbar-fixed-top {
     background: rgba(0, 0, 0, 0.7);
@@ -67,6 +39,7 @@ body {
     margin-top: 8px;
     color: white;
     float: right;
+    padding-bottom: 8px;
 }
 
 #syncText {
@@ -111,7 +84,7 @@ body {
 
 .cover {
     border-radius: 4px;
-    height: 270px;
+    height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -146,14 +119,14 @@ body {
 
 .year {
     background: rgba(51, 122, 183, 0.7);
-    width: 50px;
+    /*width: 50px;*/
     /*left: 0;*/
     /*right: 0;*/
     /*margin: 0 auto;*/
     /*top: 8px;*/
     /*font-size: 85%;*/
 
-    top: 274px;
+    top: 304px;
     right: 40px;
 }
 
@@ -221,7 +194,7 @@ ul li.active + li:not(.active) {
     margin: 0px;
 }
 
-.sorter{
+.sorter {
     /*float: right;*/
 }
 
@@ -259,5 +232,94 @@ a:visited {
     }
     to {
         transform: scale(1) rotate(360deg);
+    }
+}
+
+
+/*reflexive UI ---------------------------------------------------------------*/
+
+/*xs*/
+/*@media screen and (max-width: 768px) {
+    body {
+        font-size: 300%;
+    }
+
+    .main{
+        padding-top: 200px;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .year {
+        top: 250px;
+    }
+
+    .form-control {
+        font-size: 200%;
+        height: 80px;
+    }
+
+    button.btn{
+        height: 80px;
+        width: 80px;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .pagination{
+        font-size: 300%;
+    }
+}*/
+
+/*sm*/
+@media screen and /*(min-width: 768px) and*/ (max-width: 992px) {
+    body {
+        font-size: 300%;
+    }
+
+    .main{
+        padding-top: 200px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .navbar-brand {
+        font-size: 12pt;
+    }
+
+    .year {
+        top: 270px;
+    }
+
+    .form-control {
+        font-size: 200%;
+        height: 80px;
+    }
+
+    button.btn{
+        height: 80px;
+        width: 80px;
+    }
+
+    .navbar-header {
+        display: none;
+    }
+
+    .pagination{
+        font-size: 300%;
+    }
+
+    ul.pagination li a{
+        width: 120px
+    }
+
+    .movie-cell {
+        padding: 8px;
     }
 }
